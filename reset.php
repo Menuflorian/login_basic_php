@@ -1,23 +1,4 @@
 <?php
-<<<<<<< HEAD
-
-if (isset($_GET['id']) && issset($_GET['token'])) {
-    require 'inc/db.php';
-    $req = $pdo->prepare('SELECT * FROM user')
-}else {
-    header('Location: login.php');
-    exit();
-}
-
-
-if(!empty($_POST) && !empty($_POST['username']) && !empty($_POST['password'])){
-    require_once 'inc/db.php';
-    require_once 'inc/function.php';
-    $req = $pdo -> prepare('SELECT * FROM users WHERE (username = :username OR email = :username) AND confirmed_at IS NOT NULL');
-    $req -> execute(['username' => $_POST['username']]);
-    $user = $req->fetch();
-    if(password_verify($_POST['password'], $user->password )){
-=======
 require 'inc/function.php';
 
 if( isset($_GET['id']) && isset($_GET['token'])) {
@@ -36,7 +17,6 @@ if( isset($_GET['id']) && isset($_GET['token'])) {
             exit();
         }
     }else {
->>>>>>> a3960136a9e682534ffcb9c631a599f379973507
         session_start();
         $_SESSION['Flash']['danger'] = "Ce token n'est pas valide";
         header('Location: login.php');
@@ -52,11 +32,7 @@ if( isset($_GET['id']) && isset($_GET['token'])) {
  ?>
 <?php require 'inc/header.php'; ?>
 
-<<<<<<< HEAD
 <h1>Réinitialiser mon mot de passe.</h1>
-=======
-<h1>Reinitialiser le mot de passe</h1>
->>>>>>> a3960136a9e682534ffcb9c631a599f379973507
 
 <div class="container">
     <form class="" action="" method="post">
@@ -68,11 +44,7 @@ if( isset($_GET['id']) && isset($_GET['token'])) {
             <label for="">Confirmer votre mot de passe</label>
             <input type="password" name="password_confirm" class="form-control" placeholder="Confirm" />
         </div>
-<<<<<<< HEAD
         <input class="btn btn-primary" type="submit" value="Réinitialiser mon mot de passe.">
-=======
-        <input class="btn btn-primary" type="submit" value="Se connecter">
->>>>>>> a3960136a9e682534ffcb9c631a599f379973507
     </form>
 </div>
 

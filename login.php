@@ -10,7 +10,6 @@ if(!empty($_POST) && !empty($_POST['username']) && !empty($_POST['password'])){
     $req -> execute(['username' => $_POST['username']]);
     $user = $req->fetch();
     if(password_verify($_POST['password'], $user->password )){
-        session_start();
         $_SESSION['auth'] = $user;
         $_SESSION['flash']['success'] = 'Vous êtes maintenant connecter.';
         if($_POST['remember']){
