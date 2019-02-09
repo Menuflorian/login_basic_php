@@ -1,4 +1,14 @@
 <?php
+
+if (isset($_GET['id']) && issset($_GET['token'])) {
+    require 'inc/db.php';
+    $req = $pdo->prepare('SELECT * FROM user')
+}else {
+    header('Location: login.php');
+    exit();
+}
+
+
 if(!empty($_POST) && !empty($_POST['username']) && !empty($_POST['password'])){
     require_once 'inc/db.php';
     require_once 'inc/function.php';
@@ -18,7 +28,7 @@ if(!empty($_POST) && !empty($_POST['username']) && !empty($_POST['password'])){
  ?>
 <?php require 'inc/header.php'; ?>
 
-<h1>Se Connecter</h1>
+<h1>Réinitialiser mon mot de passe.</h1>
 
 <div class="container">
     <form class="" action="" method="post">
@@ -30,10 +40,7 @@ if(!empty($_POST) && !empty($_POST['username']) && !empty($_POST['password'])){
             <label for="">Confirmer votre mot de passe</label>
             <input type="password" name="password_confirm" class="form-control" placeholder="Confirm" />
         </div>
-        <ul class="list-unstyled">
-        <li><a href="forget.php"><h6>J'ai oublier mon mot de passe.</h6></a></li>
-        </ul>
-        <input class="btn btn-primary" type="submit" value="Se connecter">
+        <input class="btn btn-primary" type="submit" value="Réinitialiser mon mot de passe.">
     </form>
 </div>
 
